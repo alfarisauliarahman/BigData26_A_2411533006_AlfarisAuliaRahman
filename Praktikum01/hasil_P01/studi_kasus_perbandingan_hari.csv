@@ -1,0 +1,3 @@
+jenis_hari,hari_teramati,total_perjalanan,jam_puncak,jumlah_puncak,rata_perjalanan_per_hari_puncak,jam_terendah,jumlah_terendah,rata_durasi_saat_puncak,tarif_per_menit_saat_puncak
+Hari kerja,24,2132583,18,159457,6644.04,4,6192,14.03,2.22
+Akhir pekan,10,854328,16,54057,5405.7,5,4478,16.1,1.92

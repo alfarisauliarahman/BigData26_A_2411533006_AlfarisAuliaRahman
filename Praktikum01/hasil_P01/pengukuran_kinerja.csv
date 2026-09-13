@@ -1,0 +1,8 @@
+langkah,detik,delta_rss_mb
+unduh dataset,0.48,1.8
+baca semua kolom,2.62,495.4
+baca kolom terpilih,2.32,228.7
+tulis CSV,48.09,5.9
+agregasi chunking,4.26,19.4
+spark count,9.23,0.0
+Spark agregasi,6.09,0.0
