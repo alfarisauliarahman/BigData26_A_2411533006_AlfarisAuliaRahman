@@ -1,0 +1,142 @@
+{
+  "bulan": "2023-01",
+  "baris_mentah": 3066766,
+  "baris_bersih": 2986873,
+  "persen_tersisa": 97.39487786156492,
+  "fingerprint": "224dee6688ff2e46ea83cf74693c8aa9fcdbbb662d0f0a179c676d52a7c4c11d",
+  "parameter": {
+    "jarak_min": 0.01,
+    "jarak_max": 100,
+    "durasi_min": 1,
+    "durasi_max": 180,
+    "quantile_cap": 0.995,
+    "iqr_k": 1.5,
+    "hujan_mm_min": 0.1,
+    "timezone": "America/New_York",
+    "wilayah_libur": "US-NY",
+    "versi_kode": "T03-v1.0"
+  },
+  "batas_iqr_tarif": 48.349999999999994,
+  "batas_cap_jarak": 21.52,
+  "median_penumpang": 1.0,
+  "sumber": {
+    "trip": {
+      "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet",
+      "url_final": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet",
+      "params": null,
+      "diambil_pada": "2026-09-27T06:19:04.320389+00:00",
+      "sha256": "32df6f67578fa86c484a6b5ef23a5281992ff085521082340b0f9e5889e9a572",
+      "ukuran_byte": 47673370,
+      "file_mentah": "yellow_tripdata_2023-01.parquet"
+    },
+    "zona": {
+      "url": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv",
+      "url_final": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv",
+      "params": null,
+      "diambil_pada": "2026-09-27T06:19:04.661013+00:00",
+      "sha256": "1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed",
+      "ukuran_byte": 12331,
+      "file_mentah": "taxi_zone_lookup.csv"
+    },
+    "cuaca": {
+      "url": "https://archive-api.open-meteo.com/v1/archive",
+      "url_final": "https://archive-api.open-meteo.com/v1/archive?latitude=40.7128&longitude=-74.006&start_date=2023-01-01&end_date=2023-01-31&hourly=temperature_2m%2Cprecipitation&timezone=America%2FNew_York",
+      "params": {
+        "latitude": 40.7128,
+        "longitude": -74.006,
+        "start_date": "2023-01-01",
+        "end_date": "2023-01-31",
+        "hourly": "temperature_2m,precipitation",
+        "timezone": "America/New_York"
+      },
+      "diambil_pada": "2026-09-27T06:19:05.320175+00:00",
+      "sha256": "45e45ec10badd844d534c790a26dbadd9df06bfae1011a9e4226eb628f31cae7",
+      "ukuran_byte": 21341,
+      "file_mentah": "cuaca_2023-01.json"
+    },
+    "libur": {
+      "url": "https://date.nager.at/api/v3/PublicHolidays/2023/US",
+      "url_final": "https://date.nager.at/api/v3/PublicHolidays/2023/US",
+      "params": null,
+      "diambil_pada": "2026-09-27T06:19:05.390976+00:00",
+      "sha256": "421ee950f79fac6457f6997115efc210479d896c19bd2e60b4f63000dce86116",
+      "ukuran_byte": 3700,
+      "file_mentah": "hari_libur_US_2023.json"
+    }
+  },
+  "cuaca_hilang": 0,
+  "perjalanan_hari_libur": 141392,
+  "kolom_tipe": {
+    "tpep_pickup_datetime": "datetime64[us]",
+    "tpep_dropoff_datetime": "datetime64[us]",
+    "passenger_count": "float64",
+    "trip_distance": "float64",
+    "PULocationID": "int64",
+    "DOLocationID": "int64",
+    "payment_type": "int64",
+    "fare_amount": "float64",
+    "tip_amount": "float64",
+    "total_amount": "float64",
+    "durasi_menit": "float64",
+    "jam": "int32",
+    "passenger_count_hilang": "int8",
+    "tarif_ekstrem": "int8",
+    "trip_distance_capped": "float64",
+    "borough_naik": "object",
+    "zona_naik": "object",
+    "lokasi_naik_tidak_diketahui": "int8",
+    "borough_turun": "object",
+    "zona_turun": "object",
+    "lokasi_turun_tidak_diketahui": "int8",
+    "nama_pembayaran": "object",
+    "kena_biaya_admin": "int8",
+    "jam_mulai": "datetime64[us]",
+    "suhu_c": "float64",
+    "hujan_mm": "float64",
+    "cuaca_hilang": "int8",
+    "hujan": "Int8",
+    "tanggal": "object",
+    "nama_libur": "object",
+    "libur_ny": "int8",
+    "bulan": "object",
+    "hari_minggu": "int8",
+    "akhir_pekan": "int8",
+    "kecepatan_mph": "float64",
+    "tarif_per_mil": "float64"
+  },
+  "tahap": [
+    {
+      "tahap": "mentah",
+      "tersisa": 3066766,
+      "dibuang": 0
+    },
+    {
+      "tahap": "duplikat kunci",
+      "tersisa": 3066765,
+      "dibuang": 1
+    },
+    {
+      "tahap": "periode",
+      "tersisa": 3066717,
+      "dibuang": 48
+    },
+    {
+      "tahap": "jarak",
+      "tersisa": 3020773,
+      "dibuang": 45944
+    },
+    {
+      "tahap": "durasi",
+      "tersisa": 3007234,
+      "dibuang": 13539
+    },
+    {
+      "tahap": "total positif",
+      "tersisa": 2986873,
+      "dibuang": 20361
+    }
+  ],
+  "selesai_pada": "2026-09-27T06:19:28.442610+00:00",
+  "detik": 23.049841113000014,
+  "delta_rss_mb": 1390.21484375
+}

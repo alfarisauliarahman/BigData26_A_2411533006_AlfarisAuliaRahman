@@ -1,0 +1,21 @@
+bulan,aturan,lulus,gagal,persen_gagal
+2023-01,kelengkapan: passenger_count ada,2995023,71743,2.3393698769322477
+2023-01,validitas: jarak 0.01-100 mil,3020816,45950,1.4983210326448122
+2023-01,konsistensi: durasi 1-180 menit,3030383,36383,1.186363746043878
+2023-01,validitas: total_amount > 0,3040994,25772,0.840364083859023
+2023-01,konsistensi: total >= fare,3041743,25023,0.8159409619123207
+2023-01,validitas: tip_amount >= 0,3066541,225,0.0073367188758451
+2023-01,ketepatan waktu: dalam bulan,3066718,48,0.0015651666935136
+2023-01,keunikan: kunci perjalanan unik,3066765,1,3.260763944820048e-05
+2023-01,validitas: PULocationID dikenal,3066766,0,0.0
+2023-01,validitas: DOLocationID dikenal,3066766,0,0.0
+2023-07,kelengkapan: passenger_count ada,2822022,85086,2.926826247941253
+2023-07,validitas: jarak 0.01-100 mil,2857179,49929,1.7174800523406766
+2023-07,konsistensi: durasi 1-180 menit,2869003,38105,1.3107528168888118
+2023-07,validitas: total_amount > 0,2875868,31240,1.0746074793230935
+2023-07,konsistensi: total >= fare,2876483,30625,1.0534524345156768
+2023-07,validitas: tip_amount >= 0,2906985,123,0.0042310089614833
+2023-07,ketepatan waktu: dalam bulan,2907049,59,0.0020295083636383
+2023-07,keunikan: kunci perjalanan unik,2907108,0,0.0
+2023-07,validitas: PULocationID dikenal,2907108,0,0.0
+2023-07,validitas: DOLocationID dikenal,2907108,0,0.0

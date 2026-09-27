@@ -1,0 +1,42 @@
+# Kamus data seluruh dataset T03
+
+Satu baris = satu perjalanan. Waktu lokal America/New_York (naive; bulan yang dipilih tidak mencakup DST).
+
+| Nama | Tipe | Satuan | Sumber | Validitas | Nilai hilang |
+|---|---|---|---|---|---|
+| tpep_pickup_datetime | timestamp[us] | waktu lokal New York | TLC | Dalam bulan partisi, datetime | Baris dibuang bila periode tidak valid |
+| tpep_dropoff_datetime | timestamp[us] | waktu lokal New York | TLC | Menghasilkan durasi 1-180 menit | Baris dibuang oleh filter durasi |
+| passenger_count | double | penumpang | TLC + imputasi | Numerik; nilai teramati tidak diubah; bukan selalu integer setelah median | Median per jam, lalu median global; indikator terpisah |
+| trip_distance | double | mil | TLC | 0.01 sampai 100 inklusif | Baris dibuang |
+| PULocationID | int64 | kode | TLC | Kode referensi bila dikenal; Unknown tetap bisa ada | Tidak diimputasi; join gagal diberi label/indikator |
+| DOLocationID | int64 | kode | TLC | Kode referensi bila dikenal; Unknown tetap bisa ada | Tidak diimputasi; join gagal diberi label/indikator |
+| payment_type | int64 | kode | TLC | 1-6 referensi; kode lain dilabeli tidak diketahui | Tidak diimputasi, label pembayaran tidak diketahui |
+| fare_amount | double | USD | TLC | Numerik; total >= fare diukur dalam laporan, bukan filter | Dibiarkan kosong, tidak diimputasi |
+| tip_amount | double | USD | TLC | >=0 diukur dalam laporan, bukan filter | Dibiarkan kosong, tidak diimputasi |
+| total_amount | double | USD | TLC | >0; mencakup komponen total sumber | Baris dibuang |
+| durasi_menit | double | menit | dropoff-pickup | 1-180 inklusif, total_seconds/60 | Baris dibuang |
+| jam | int32 | jam 0-23 | pickup.dt.hour | 0-23 | Pickup tidak valid dibuang |
+| passenger_count_hilang | int8 | biner | passenger_count asli | 0/1; 1 berarti nilai semula kosong | Tidak kosong |
+| tarif_ekstrem | int8 | biner | IQR total per bulan | 1 bila total > Q3+1.5*IQR | Total kosong sudah dibuang |
+| trip_distance_capped | double | mil | jarak turunan | min(jarak asli, P99.5 bulan); ambang pada manifest | Jarak kosong sudah dibuang |
+| zona_naik | string | nama zona | Taxi Zone Lookup via PULocationID | Nama zona sumber atau Tidak Diketahui | Label Tidak Diketahui |
+| lokasi_naik_tidak_diketahui | int8 | biner | join zona asal | 0/1; atribut kosong atau borough Unknown | Tidak kosong |
+| borough_turun | string | kategori | Taxi Zone Lookup via DOLocationID | Borough sumber atau Tidak Diketahui | Label Tidak Diketahui |
+| zona_turun | string | nama zona | Taxi Zone Lookup via DOLocationID | Nama zona sumber atau Tidak Diketahui | Label Tidak Diketahui |
+| lokasi_turun_tidak_diketahui | int8 | biner | join zona tujuan | 0/1; atribut kosong atau borough Unknown | Tidak kosong |
+| nama_pembayaran | string | kategori | Referensi simulasi modul | Pemetaan kode 1-6 atau Tidak diketahui | Label Tidak diketahui |
+| kena_biaya_admin | int8 | biner | Referensi simulasi modul | 1 untuk kode 1; 0 lainnya, bukan tagihan aktual | 0 dengan label pembayaran tidak diketahui |
+| jam_mulai | timestamp[us] | jam lokal New York | pickup.dt.floor(h) | Awal jam untuk join cuaca | Pickup tidak valid dibuang |
+| suhu_c | double | derajat C | Open-Meteo temperature_2m | Numerik; reanalisis satu koordinat | Tetap kosong dan cuaca_hilang=1 |
+| hujan_mm | double | mm/jam | Open-Meteo precipitation | >=0 bila terisi | Tetap kosong dan cuaca_hilang=1 |
+| cuaca_hilang | int8 | biner | kelengkapan suhu/hujan | 0/1 | Tidak kosong |
+| hujan | int8 | biner nullable | hujan_mm > 0.1 | 0/1 atau null | Tetap null; tidak dianggap tidak hujan |
+| tanggal | string | YYYY-MM-DD | tanggal lokal pickup | Sesuai pickup | Pickup tidak valid dibuang |
+| nama_libur | string | nama | Nager.Date US-NY Public | Nama gabungan per tanggal atau Bukan hari libur publik | Tidak berpasangan diberi label bukan hari libur |
+| libur_ny | int8 | biner | join kalender libur | 0/1 berdasarkan kalender API lengkap tahun 2023 | Tidak berpasangan=0, bukan jaminan semua bisnis buka |
+| hari_minggu | int8 | kode 0-6 | pickup.dt.dayofweek | Senin=0, Minggu=6 | Tidak kosong |
+| akhir_pekan | int8 | biner | hari_minggu >=5 | Sabtu/Minggu=1 | Tidak kosong |
+| kecepatan_mph | double | mil/jam | jarak/(durasi/60) | Positif, dibulatkan 2 desimal; bukan kecepatan sesaat | Input kosong sudah dibuang |
+| tarif_per_mil | double | USD/mil | total_amount/trip_distance | Positif, dibulatkan 3 desimal; termasuk tip/biaya total | Input kosong sudah dibuang |
+| bulan | string | YYYY-MM | parameter pipeline | 2023-01 atau 2023-07, sesuai pickup | Tidak kosong |
+| borough_naik | string | kategori | Taxi Zone Lookup via PULocationID | Borough sumber atau Tidak Diketahui | Label Tidak Diketahui |

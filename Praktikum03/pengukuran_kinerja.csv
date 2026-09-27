@@ -1,0 +1,7 @@
+langkah,detik,delta_rss_mb
+unduh trip,0.0,0.0
+unduh zona,0.0,0.0
+baca trip,1.1,253.5
+ambil cuaca,0.83,0.0
+pipeline penuh,6.24,555.0
+tulis parquet berpartisi,3.22,399.8

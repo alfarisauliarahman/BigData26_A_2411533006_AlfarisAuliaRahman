@@ -1,0 +1,29 @@
+{
+  "sumber_trip": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet",
+  "sumber_zona": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv",
+  "sumber_cuaca": "https://archive-api.open-meteo.com/v1/archive",
+  "cuaca_lineage": [
+    {
+      "sumber": "cuaca",
+      "asal": "https://archive-api.open-meteo.com/v1/archive",
+      "diambil_pada": "2026-09-27T06:03:55.152991+00:00",
+      "jumlah_baris": 744,
+      "keterangan": "Open-Meteo hourly archive"
+    }
+  ],
+  "kolom_kunci_transaksi": [
+    "tpep_pickup_datetime",
+    "tpep_dropoff_datetime",
+    "PULocationID",
+    "DOLocationID",
+    "total_amount"
+  ],
+  "ambang_perjalanan": 30,
+  "agregasi": "median tarif_per_mil dan kecepatan_mph per borough-jam",
+  "cakupan": "Januari 2023, lima borough, cuaca lengkap",
+  "baris_transaksi_sebelum_cakupan": 2986910,
+  "baris_transaksi_cakupan": 2948897,
+  "kelompok_sebelum_ambang": 3028,
+  "kelompok_akhir": 1565,
+  "dibuat_pada": "2026-09-27T06:13:35.739889+00:00"
+}

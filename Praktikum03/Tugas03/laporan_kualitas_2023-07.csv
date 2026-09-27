@@ -1,0 +1,11 @@
+bulan,aturan,lulus,gagal,persen_gagal
+2023-07,kelengkapan: passenger_count ada,2822022,85086,2.926826247941253
+2023-07,validitas: jarak 0.01-100 mil,2857179,49929,1.7174800523406766
+2023-07,konsistensi: durasi 1-180 menit,2869003,38105,1.3107528168888118
+2023-07,validitas: total_amount > 0,2875868,31240,1.0746074793230935
+2023-07,konsistensi: total >= fare,2876483,30625,1.0534524345156768
+2023-07,validitas: tip_amount >= 0,2906985,123,0.004231008961483371
+2023-07,ketepatan waktu: dalam bulan,2907049,59,0.0020295083636383653
+2023-07,keunikan: kunci perjalanan unik,2907108,0,0.0
+2023-07,validitas: PULocationID dikenal,2907108,0,0.0
+2023-07,validitas: DOLocationID dikenal,2907108,0,0.0
