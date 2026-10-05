@@ -1,0 +1,47 @@
+langkah,detik
+baca trips_bersih (sintetis),0.9475
+relasional: muat tabel,1.7372
+key-value: bangun dict,10.5163
+cari 200 perjalanan - SQL tanpa indeks,9.6899
+cari 200 perjalanan - SQL dengan indeks,0.0054
+cari 200 perjalanan - key-value,0.0018
+hitung per wilayah - SQL GROUP BY,0.4039
+hitung per wilayah - key-value (buka semua nilai),2.3057
+DuckDB - hitung per wilayah (langsung dari Parquet),0.0742
+SQLite - muat seluruh baris ke tabel,2.5862
+SQLite - hitung per wilayah,0.6182
+DuckDB - hanya wilayah Staten Island,0.0136
+hitung arus antar zona,0.0868
+2 langkah - graph (NetworkX),0.0107
+2 langkah - SQL self-join (DuckDB),0.0171
+"cara 1 - loop Python, 5 kotak",13.3685
+"cara 2 - NumPy, 1000 kotak",0.5398
+bangun indeks STRtree,0.0686
+"cara 3 - STRtree, 1000 kotak",0.2356
+Delta - baca sebelum compact,0.079
+Delta - baca sesudah compact,0.0506
+"O6 - STRtree, 5 kotak",0.0021
+"Q1 - SQL berindeks, 2000 ID",0.0377
+"Q1 - key-value, 2000 ID",0.0126
+"Q3 - SUM 1 kolom, ulangan 1",0.0226
+"Q3 - SUM 4 kolom, ulangan 1",0.0458
+"Q3 - SUM 1 kolom, ulangan 2",0.0223
+"Q3 - SUM 4 kolom, ulangan 2",0.044
+"Q3 - SUM 1 kolom, ulangan 3",0.0232
+"Q3 - SUM 4 kolom, ulangan 3",0.045
+"Q3 - SUM 1 kolom, ulangan 4",0.0269
+"Q3 - SUM 4 kolom, ulangan 4",0.0433
+"Q3 - SUM 1 kolom, ulangan 5",0.0229
+"Q3 - SUM 4 kolom, ulangan 5",0.0441
+"Q5 - NumPy sisi 0.02, ulangan 1",0.5509
+"Q5 - STRtree sisi 0.02, ulangan 1",0.8735
+"Q5 - NumPy sisi 0.02, ulangan 2",0.6615
+"Q5 - STRtree sisi 0.02, ulangan 2",1.0824
+"Q5 - NumPy sisi 0.02, ulangan 3",0.6439
+"Q5 - STRtree sisi 0.02, ulangan 3",1.0941
+"Q5 - NumPy sisi 0.001, ulangan 1",0.7275
+"Q5 - STRtree sisi 0.001, ulangan 1",0.0199
+"Q5 - NumPy sisi 0.001, ulangan 2",0.5414
+"Q5 - STRtree sisi 0.001, ulangan 2",0.0132
+"Q5 - NumPy sisi 0.001, ulangan 3",0.5643
+"Q5 - STRtree sisi 0.001, ulangan 3",0.0128

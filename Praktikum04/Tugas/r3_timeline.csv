@@ -1,0 +1,4 @@
+hari,versi,operasi,baris
+Hari 1,0,WRITE awal,100000
+Hari 2,1,APPEND 50.000,150000
+Hari 2,2,UPDATE +2 USD,150000

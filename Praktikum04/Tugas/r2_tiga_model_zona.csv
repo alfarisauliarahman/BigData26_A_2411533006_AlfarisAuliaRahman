@@ -1,0 +1,4 @@
+model,pertanyaan_mudah,pertanyaan_canggung,kompromi
+Tabel SQL zona_ringkas,Urutkan lima zona dengan jumlah penjemputan terbesar (ORDER BY berangkat).,Tujuan yang terjangkau dalam k langkah; perlu tabel edge dan self-join/recursive CTE.,"Ringkasan ringkas dan mudah diagregasi, tetapi harus diperbarui ketika trip berubah."
+Dokumen per zona,Ambil ringkasan dan seluruh daftar tujuan satu zona dalam satu dokumen.,Hitung jalur lintas banyak zona; perlu membaca beberapa dokumen dan traversal aplikasi.,"Embedding memudahkan baca bersama, tetapi daftar tujuan/ringkasan terduplikasi dari trip."
+Graph zona/arus,Zona yang dapat dicapai dalam <=k langkah atau tujuan langsung beserta bobotnya.,Detail perjalanan individual atau laporan per jam/tanggal; graph arus menghilangkan rincian waktu.,"Relasi jelas, tetapi agregat edge harus disinkronkan dan rincian trip disimpan di sumber utama."

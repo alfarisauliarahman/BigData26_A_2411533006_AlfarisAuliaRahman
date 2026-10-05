@@ -1,0 +1,7 @@
+kebutuhan,pilihan,pembanding,angka,interpretasi
+Ambil satu data lewat id,Key-value atau SQLite berindeks,SQLite tanpa indeks,200 ID: scan 6.8203s; indeks 0.0048s; KV 0.0011s,Indeks menghindari scan; rasio scan/indeks 1420.90x pada sampel yang sama.
+Merangkum banyak baris,DuckDB + Parquet,SQLite; key-value untuk agregasi,"1,000,000 baris: DuckDB 0.0319s vs SQLite 0.6151s; 300,000 baris: SQL 0.2094s vs KV 1.4247s","Dua pasangan memakai populasi masing-masing yang sama; SQLite/DuckDB 19.28x, KV/SQL 6.80x."
+Field opsional/berubah,Document (TinyDB),Kolom tabel tetap,"20,001 dokumen; cuaca 1; tanpa tip 6,021",Field baru diterima tanpa migrasi; validasi aplikasi diperlukan agar salah nama/tipe tidak diam-diam diterima.
+Keterhubungan k langkah,Graph untuk traversal,SQL self-join,"2 langkah: graph 0.0173s; SQL 0.0055s; hasil sama 91 zona; k=1..4 [83, 91, 91, 91]",Pemenang waktu run ini: SQL; graph dipilih karena k mudah diubah.
+Lokasi dalam wilayah,STRtree,NumPy tanpa indeks,1.000 kotak: NumPy 0.5554s; indeks 0.2964s; bangun 0.0754s,Rasio NumPy/query 1.87x; termasuk pembangunan 1.49x; hasil sama pada titik sintetis.
+Perubahan aman dan kembali ke versi lama,Delta Lake,Folder Parquet biasa,"v0/v1/v2 100,000/150,000/150,000; append asing ditolak; compact 21 -> 1 file","Log menyimpan riwayat komit; snapshot lama tetap terbaca, skema dijaga, dan compaction tidak mengubah jumlah baris."
